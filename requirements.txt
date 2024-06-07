@@ -1,0 +1,6 @@
+setuptools
+mediapipe
+numpy
+isort
+black
+cairosvg
