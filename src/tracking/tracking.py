@@ -26,7 +26,12 @@ def _origin(bbox, px, py):
 class Tracking:
     def __init__(self):
         options = FaceLandmarkerOptions(
-            base_options=BaseOptions(model_asset_path="./face_landmarker.task"),
+            base_options=BaseOptions(
+                model_asset_path="./face_landmarker.task", delegate="CPU"
+            ),
+            output_face_blendshapes=True,
+            output_facial_transformation_matrixes=True,
+            num_faces=1,
             running_mode=VisionRunningMode.LIVE_STREAM,
             result_callback=self.__process_callback__,
         )
@@ -36,6 +41,7 @@ class Tracking:
         self.__filter = {}
 
         self.__face_landmarks = None
+        self.__face_blendshape = None
 
         self.__model = None
 
@@ -73,7 +79,13 @@ class Tracking:
     ):
         # optimized_image = resize_image(image, 480)
 
+        face_blendshapes = {}
         face_landmarks = np.empty((478, 3))
+
+        if face_landmarker_result and len(face_landmarker_result.face_blendshapes) == 1:
+            for s in face_landmarker_result.face_blendshapes[0]:
+                face_blendshapes[s.category_name] = s.score
+            self.__face_blendshape = face_blendshapes
 
         if face_landmarker_result and len(face_landmarker_result.face_landmarks) == 1:
             for i, pt in enumerate(face_landmarker_result.face_landmarks[0]):
@@ -145,12 +157,16 @@ class Tracking:
         )
 
     def __get_mouth_size__(self):
-        x0, x1 = self._getn_face([61, 291])
-        y0, y1 = self._getn_face([0, 17])
+        # x0, x1 = self._getn_face([61, 291])
+        # y0, y1 = self._getn_face([0, 17])
 
-        w = x1[0] - x0[0]
-        h = y1[1] - y0[1]
+        # w = x1[0] - x0[0]
+        # h = y1[1] - y0[1]
+        # print((w, h))
+        w = 1.0 - self.__face_blendshape["mouthPucker"]
+        h = self.__face_blendshape["jawOpen"] / 2
 
+        print((w, h))
         return self.__filter__("mouth-0", w), self.__filter__("mouth-1", h)
 
     def __get_iris_diff__(self):
