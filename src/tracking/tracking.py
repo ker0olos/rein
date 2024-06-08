@@ -1,10 +1,15 @@
 import time
 
+import mediapipe as mp
 import numpy as np
 
 from src.svg.model import Model
-from src.tracking.backend import Backend
 from src.tracking.filters import OneEuroFilter
+
+BaseOptions = mp.tasks.BaseOptions
+FaceLandmarker = mp.tasks.vision.FaceLandmarker
+FaceLandmarkerOptions = mp.tasks.vision.FaceLandmarkerOptions
+VisionRunningMode = mp.tasks.vision.RunningMode
 
 
 def _origin(bbox, px, py):
@@ -18,26 +23,29 @@ def _origin(bbox, px, py):
     )
 
 
-class Tracking(Backend):
+class Tracking:
     def __init__(self):
-        self._backend = super()
-        self._backend.__init__()
+        options = FaceLandmarkerOptions(
+            base_options=BaseOptions(model_asset_path="./face_landmarker.task"),
+            running_mode=VisionRunningMode.LIVE_STREAM,
+            result_callback=self.__process_callback__,
+        )
+
+        self.__face_landmarker = FaceLandmarker.create_from_options(options)
 
         self.__filter = {}
 
-        self._face_landmarks = None
-        # self._pose_landmarks = None
+        self.__face_landmarks = None
 
-        self._model = None
+        self.__model = None
+
+        self.last_frame_ms = None
 
     def set_model(self, model: Model):
-        self._model = model
+        self.__model = model
 
     def _getn_face(self, indices):
-        return np.array([self._face_landmarks[i] for i in indices])
-
-    # def _get_pose(self, indices):
-    #     return np.array([self._pose_landmarks[i] for i in indices])
+        return np.array([self.__face_landmarks[i] for i in indices])
 
     def __filter__(self, key, n):
         if n is not None:
@@ -55,46 +63,66 @@ class Tracking(Backend):
 
         return n
 
-    def process(self, image: np.ndarray):
-        results = super().process(image)
+    def process(self, image):
+        frame_timestamp_ms = int(time.time() * 1000)
+        mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image)
+        self.__face_landmarker.detect_async(mp_image, frame_timestamp_ms)
 
-        if results.face_landmarks_normalized is not None:
-            self._face_landmarks = results.face_landmarks_normalized
+    def __process_callback__(
+        self, face_landmarker_result, _output_image, _timestamp_ms
+    ):
+        # optimized_image = resize_image(image, 480)
 
-        # if results.pose_landmarks is not None:
-        #     self._pose_landmarks = results.pose_landmarks
+        face_landmarks = np.empty((478, 3))
 
-        if self._model is not None:
-            # revert model to its original state
+        if face_landmarker_result and len(face_landmarker_result.face_landmarks) == 1:
+            for i, pt in enumerate(face_landmarker_result.face_landmarks[0]):
+                face_landmarks[i][0] = pt.x
+                face_landmarks[i][1] = pt.y
+                face_landmarks[i][2] = pt.z
 
-            for p in self._model.paths:
-                p._modified_segments = p._segments
+            xs, ys, _ = face_landmarks.T
 
-            # apply the tracking to model
-            if self._face_landmarks is not None:
+            bbox = np.min(xs), np.max(xs), np.min(ys), np.max(ys)
+
+            self.__face_landmarks = np.array(
+                [
+                    [
+                        (pt[0] - bbox[0]) / (bbox[1] - bbox[0]),
+                        (pt[1] - bbox[2]) / (bbox[3] - bbox[2]),
+                    ]
+                    for pt in face_landmarks
+                ]
+            )
+
+            if self.__model is not None:
+                # revert model to its original state
+                for p in self.__model.paths:
+                    p._modified_segments = p._segments
+
+                # apply the tracking to model
                 self.__apply_face_to_model__()
 
-            # if self._pose_landmarks is not None:
-            #     self.apply_pose_to_model()
+                self.last_frame_ms = time.time()
 
     def __apply_face_to_model__(self):
         x, y = 0, 0.35
 
-        if self._model.__exists__("face"):
-            x = float(self._model.__find_attrs_by_id__("face", "rein:xpivot", x))
-            y = float(self._model.__find_attrs_by_id__("face", "rein:ypivot", y))
+        if self.__model.__exists__("face"):
+            x = float(self.__model.__find_attrs_by_id__("face", "rein:xpivot", x))
+            y = float(self.__model.__find_attrs_by_id__("face", "rein:ypivot", y))
 
-            self._model.face_rotation = self.__get_face_tilt__()
+            self.__model.face_rotation = self.__get_face_tilt__()
 
-            self._model.face_origin = _origin(self._model.face_virgin_bbox, x, y)
+            self.__model.face_origin = _origin(self.__model.face_virgin_bbox, x, y)
 
-            self._model.__apply_eyes__(
+            self.__model.__apply_eyes__(
                 self.__get_eye_height__(),
                 self.__get_eyebrow_diff__(),
                 self.__get_iris_diff__(),
             )
 
-            self._model.__apply_mouth__(*self.__get_mouth_size__())
+            self.__model.__apply_mouth__(*self.__get_mouth_size__())
 
     def __get_eyebrow_diff__(self):
         def _get(indices):

@@ -296,6 +296,12 @@ class Model:
 
         def func(pt):
             x, y = pt
+            if x > 0.5 and x + xerr + x_normal > 0.5:
+                x = x + x_normal
+            elif x - xerr - x_normal < 0.5:
+                x = x - x_normal
+            else:
+                x = 0.5
 
             if y > 0.5 and y - yerr - y_normal > 0.5:
                 y = y - y_normal
@@ -303,13 +309,6 @@ class Model:
                 y = y + y_normal
             else:
                 y = 0.5
-
-            if x > 0.5 and x + xerr + x_normal > 0.5:
-                x = x + x_normal
-            elif x - xerr - x_normal < 0.5:
-                x = x - x_normal
-            else:
-                x = 0.5
 
             return x, y
 
