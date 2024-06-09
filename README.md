@@ -2,15 +2,11 @@
 
 A experimental vtuber app using easy to make svg models.
 
-### Story
+### Roadmap
 
-This app started on 2022 with a lot of ambition and goals, a lot of people
-collaborated on it, it was built on Rust to be fast and cloud-based, and a
-working demo was sent as a contract proposal to ~~REDACTED~~ corp, Unfortunately
-that project will never see the light of day for various reasons.
-
-This however is a more simplified, striped down python version of the project
-using the same SVG models system and ML kit.
+This is (rein)carnation of a project I made in 2022, the plan is to update it to
+use the standard 52 blendshapes instead of the current landmark method, and
+support all those blendshapes in them models.
 
 ### How to use
 

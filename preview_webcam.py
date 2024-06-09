@@ -1,6 +1,6 @@
-import cairosvg
 import cv2
 import numpy as np
+import resvg_python
 
 from src.svg.model import Model
 from src.tracking.tracking import Tracking
@@ -20,7 +20,7 @@ if __name__ == "__main__":
                 break
 
             tracking.process(frame)
-            image_bytes = cairosvg.svg2png(model.tostring().encode())
+            image_bytes = resvg_python.svg_to_png(model.tostring())
             image_decoded = cv2.imdecode(
                 np.array(bytearray(image_bytes)), cv2.IMREAD_COLOR
             )

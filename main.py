@@ -1,5 +1,5 @@
-import cairosvg
 import cv2
+import resvg_python
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
@@ -23,7 +23,7 @@ async def fake_video_streamer():
                 if not ret:
                     break
                 tracking.process(frame)
-                buffer = cairosvg.svg2png(model.tostring().encode())
+                buffer = resvg_python.svg_to_png(model.tostring())
                 yield (
                     b"--frame\r\n"
                     b"Content-Type: image/png\r\n\r\n" + bytearray(buffer) + b"\r\n"
