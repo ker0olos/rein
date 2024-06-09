@@ -9,6 +9,8 @@ update it to use the ARkit standard 52 blendshapes instead of the current face
 landmarks method, and support all those blendshapes with toggles in the model
 parser.
 
+![demo image showing a man with his eyes and mouth wide open and a vtuber avatar mimicking that facial structure](tests/snapshots/basic_model/test_eyes_mouth.jpeg)
+
 #### How to use
 
 Not yet ready for public use.
