@@ -4,15 +4,15 @@ import resvg_python
 
 from src.svg.model import Model
 from src.tracking.tracking import Tracking
+from src.utils import overlay_webcam
 
 if __name__ == "__main__":
-    tracking = Tracking()
-
-    vid = cv2.VideoCapture(0)
-
     with open("models/face.svg", "r") as model_file:
+        tracking = Tracking()
+        vid = cv2.VideoCapture(0)
         model = Model(model_file.read())
         tracking.set_model(model)
+
         while True:
             ret, frame = vid.read()
 
@@ -25,7 +25,9 @@ if __name__ == "__main__":
                 np.array(bytearray(image_bytes)), cv2.IMREAD_COLOR
             )
 
-            cv2.imshow("rein", image_decoded)
+            final_image = overlay_webcam(frame, image_decoded)
+
+            cv2.imshow("rein", final_image)
 
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 vid.release()
