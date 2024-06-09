@@ -14,7 +14,7 @@ async def fake_video_streamer():
     vid = cv2.VideoCapture(0)
 
     try:
-        with open("models/face.svg", "r") as model_file:
+        with open("tests/models/face.svg", "r") as model_file:
             tracking = Tracking()
             model = Model(model_file.read())
             tracking.set_model(model)

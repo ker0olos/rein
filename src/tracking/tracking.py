@@ -5,6 +5,7 @@ import numpy as np
 
 from src.svg.model import Model
 from src.tracking.filters import OneEuroFilter
+from src.tracking.utils import optimize_image
 
 BaseOptions = mp.tasks.BaseOptions
 FaceLandmarker = mp.tasks.vision.FaceLandmarker
@@ -68,7 +69,9 @@ class Tracking:
 
     def process(self, image):
         frame_timestamp_ms = int(time.time() * 1000)
-        mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image)
+        mp_image = mp.Image(
+            image_format=mp.ImageFormat.SRGB, data=optimize_image(image)
+        )
         self.__face_landmarker.detect_async(mp_image, frame_timestamp_ms)
 
     def __process_callback__(

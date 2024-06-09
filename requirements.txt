@@ -6,3 +6,6 @@ black
 fastapi
 uvicorn
 resvg_python
+pytest
+pytest-black
+pytest-isort
