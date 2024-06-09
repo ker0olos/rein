@@ -15,14 +15,21 @@
   "python.analysis.autoImportCompletions": true,
   "files.exclude": {
     "**/.git": true,
-    "**/venv": true,
+    "**/.venv": true,
     "**/__pycache__": true,
     "**/.pytest_cache": true,
-    "**/*.egg-info": true
+    "**/*.egg-info": true,
+    "**/*.task": true,
+    "**/__init__.py": true,
   },
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "README.md": "LICENSE,.gitignore"
-  }
+    "README.md": "LICENSE,.gitignore",
+    "requirements.txt": "setup.py",
+  },
+  "discord.enabled": true,
+  "discord.buttonEnabled": true,
+  "discord.buttonLabel": "Try Rein",
+  "discord.buttonUrl": "https://github.com/ker0olos/rein"
 }
