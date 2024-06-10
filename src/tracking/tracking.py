@@ -158,7 +158,8 @@ class Tracking:
 
     def __get_mouth_size__(self):
         w = 1.0 - self.__face_blendshape["mouthPucker"]
-        h = self.__face_blendshape["jawOpen"] * 0.5
+        h = self.__face_blendshape["jawOpen"]
+
         return self.__filter__("mouth-0", w), self.__filter__("mouth-1", h)
 
     def __get_iris_diff__(self):
