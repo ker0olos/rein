@@ -77,8 +77,6 @@ class Tracking:
     def __process_callback__(
         self, face_landmarker_result, _output_image, _timestamp_ms
     ):
-        # optimized_image = resize_image(image, 480)
-
         face_blendshapes = {}
         face_landmarks = np.empty((478, 3))
 

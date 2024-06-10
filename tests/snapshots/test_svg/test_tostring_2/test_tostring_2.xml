@@ -1,0 +1,13 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" version="1.1" viewBox="0,0,1280,720" width="100%">
+  <ns0:g transform="translate(556.409481, 250.8029727777778) scale(1.0)" style="transform-origin: 84px 109px">
+    <ns0:defs>
+      <ns0:clipPath id="left-eye-clippath">
+        <ns0:use href="#left-eye" />
+      </ns0:clipPath>
+      <ns0:clipPath id="left">
+        <ns0:use href="#left-2" />
+      </ns0:clipPath>
+    </ns0:defs>
+    <ns0:path id="left-eye" style="opacity:1;fill:#ffffff;fill-opacity:0.5;fill-rule:evenodd;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" d="M 82.839512,110.0332 C 82.839512,110.0332 82.585989,109.37437 82.620265,109.03563 C 82.652725,108.7149 82.647305,108.55001 82.828177,108.40751 C 83.065614,108.32841 82.81177699999999,108.34001 83.69606999999999,108.50201 C 83.87821399999999,108.45241 84.591743,108.85461 84.560773,109.04966 C 84.554873,109.08666000000001 84.502503,109.41525 84.442116,109.59031 C 84.389416,109.7431 84.321272,110.04301 84.23137799999999,110.02965 C 83.980786,109.99245 83.618946,110.03265 83.49412899999999,110.01965 C 83.11592799999998,109.98134999999999 82.83951499999999,110.03295 82.83951499999999,110.03295 L 82.839512,110.0332" />
+  </ns0:g>
+</ns0:svg>

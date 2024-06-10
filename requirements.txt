@@ -1,11 +1,14 @@
-setuptools
-mediapipe
 numpy
-isort
-black
 fastapi
 uvicorn
+mediapipe
 resvg_python
-pytest
+
+# dev deps
+setuptools
+black
 pytest-black
+isort
 pytest-isort
+pytest-snapshot
+pytest

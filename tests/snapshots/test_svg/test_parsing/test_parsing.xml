@@ -1,0 +1,2 @@
+Model(Path(Arc(start=[ 0.418673 24.      ], radius=[23.581327 23.581326], rotation=0.0, large_arc=True, sweep=False, end=[47.581327 24.      ]),
+     Arc(start=[47.581327 24.      ], radius=[23.581327 23.581326], rotation=0.0, large_arc=True, sweep=False, end=[ 0.418673 24.      ])))
