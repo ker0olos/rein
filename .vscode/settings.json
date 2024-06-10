@@ -10,7 +10,8 @@
   },
   "isort.args": [
     "--profile",
-    "black"
+    "black",
+    "--length-sort"
   ],
   "python.analysis.autoImportCompletions": true,
   "files.exclude": {

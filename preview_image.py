@@ -2,9 +2,9 @@ import cv2
 import numpy as np
 import resvg_python
 
+from tests.utils import overlay_webcam
 from src.svg.model import Model
 from src.tracking.tracking import Tracking
-from tests.utils import overlay_webcam
 
 if __name__ == "__main__":
     with open("tests/models/face.svg", "r") as model_file:

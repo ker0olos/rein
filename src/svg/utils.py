@@ -1,5 +1,5 @@
 # forked from https://github.com/mathandy/svgpathtools
-from xml.dom.minidom import Document, Element
+from xml.dom.minidom import Element, Document
 
 
 def dom_to_dict(element: Element):

@@ -6,10 +6,10 @@ import numpy as np
 import pytest
 import resvg_python
 
-from src.svg.model import Model
-from src.tracking.tracking import Tracking
-from src.tracking.utils import optimize_image
 from tests.utils import compare_img, overlay_webcam
+from src.svg.model import Model
+from src.tracking.utils import optimize_image
+from src.tracking.tracking import Tracking
 
 with open("tests/models/face.svg") as file:
     face_model_file = file.read()

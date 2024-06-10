@@ -1,11 +1,11 @@
 import time
 
-import mediapipe as mp
 import numpy as np
+import mediapipe as mp
 
 from src.svg.model import Model
-from src.tracking.filters import OneEuroFilter
 from src.tracking.utils import optimize_image
+from src.tracking.filters import OneEuroFilter
 
 BaseOptions = mp.tasks.BaseOptions
 FaceLandmarker = mp.tasks.vision.FaceLandmarker

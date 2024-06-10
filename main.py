@@ -1,6 +1,6 @@
 import cv2
-import resvg_python
 import uvicorn
+import resvg_python
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 

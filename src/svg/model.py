@@ -5,16 +5,16 @@ import numpy as np
 
 from src.svg.path import Path, compare_bbs
 from src.svg.utils import (
-    attrs_to_string,
-    define_groups,
+    purge,
     dom_to_dict,
-    ellipse_to_pathd,
+    define_groups,
+    rect_to_pathd,
     get_clip_paths,
     lines_to_pathd,
+    attrs_to_string,
+    ellipse_to_pathd,
     polygon_to_pathd,
     polyline_to_pathd,
-    purge,
-    rect_to_pathd,
 )
 
 Group = namedtuple("Group", ["key", "attributes", "compiled", "children"])
