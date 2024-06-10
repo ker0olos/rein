@@ -191,10 +191,14 @@ class Model:
             xerr = float(self.__find_attrs_by_id__(id, "rein:xerr", "0.03"))
             yerr = float(self.__find_attrs_by_id__(id, "rein:yerr", "0.015"))
 
+            hmax = float(self.__find_attrs_by_id__("mouth", "rein:hmax", "1.0"))
+
             scale = float(self.__find_attrs_by_id__(id, "rein:scale", "1"))
 
             closed = 0.020
             regular = 0.052
+
+            height = min(height, hmax)
 
             if scale > 0:
                 normal = max(((height - closed) / (regular - closed), 0)) * scale * 0.5
@@ -282,7 +286,13 @@ class Model:
         xerr = float(self.__find_attrs_by_id__("mouth", "rein:xerr", "0.03"))
         yerr = float(self.__find_attrs_by_id__("mouth", "rein:yerr", "0.015"))
 
+        wmax = float(self.__find_attrs_by_id__("mouth", "rein:wmax", "1.0"))
+        hmax = float(self.__find_attrs_by_id__("mouth", "rein:hmax", "1.0"))
+
         scale = float(self.__find_attrs_by_id__("mouth", "rein:scale", "1"))
+
+        width = min(width, wmax)
+        height = min(height, hmax)
 
         x_regular = 0.34
         y_regular = 0.062
@@ -296,6 +306,7 @@ class Model:
 
         def func(pt):
             x, y = pt
+
             if x > 0.5 and x + xerr + x_normal > 0.5:
                 x = x + x_normal
             elif x - xerr - x_normal < 0.5:

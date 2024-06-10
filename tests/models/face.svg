@@ -13,7 +13,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns:rein="https://github.com/ker0olos/rein">
-   <sodipodi:namedview
+  <sodipodi:namedview
      id="namedview17"
      pagecolor="#505050"
      bordercolor="#ffffff"
@@ -27,62 +27,62 @@
      inkscape:cx="3.4206872"
      inkscape:cy="4.0771828"
      inkscape:current-layer="g209" />
-   <path
+  <path
      id="neck"
      style="display:inline;opacity:1;fill:#ffc299;fill-opacity:1;stroke:#000000;stroke-width:0.187229;stroke-linecap:square;stroke-opacity:1"
      d="m 83.799813,114.29336 v -2.68717 h 2.172295 v 2.69284 z" />
-   <g
-     id="face"
-     rein:test="best_app">
-      <path
+  <g
+     id="face">
+    <path
        style="display:inline;opacity:1;fill:#ffc299;fill-opacity:1;stroke:#000000;stroke-width:0.187229;stroke-linecap:butt;stroke-opacity:1"
        d="m 86.820426,113.46944 c -0.330523,0.23561 -1.300231,0.38331 -1.988449,0.38331 -0.77024,0 -1.586485,-0.22406 -2.105886,-0.62312 -0.805336,-0.61873 -0.818234,-0.97301 -1.038905,-2.40463 -0.126745,-0.81476 -0.146387,-1.77584 -0.09878,-2.35923 0.03237,-0.36299 0.120884,-0.8465 0.250997,-1.14618 0.369217,-0.8504 1.298133,-0.96844 2.940351,-0.93066 2.385142,0.22805 3.231882,0.60179 3.269336,1.65078 0.01422,0.39808 0.106602,1.19274 0.144574,1.65384 0.07376,0.89559 -0.169197,1.35591 -0.313993,2.16588 -0.114547,0.64076 -0.382532,1.10443 -1.059253,1.61001 z"
        id="path3" />
-      <path
+    <path
        style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.116649;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        d="m 85.302759,111.42358 c 0,0 -0.145593,0.61877 -0.618768,0.47318 -0.473176,-0.14559 -0.109194,-1.20114 -0.109194,-1.20114"
        id="path5" />
-      <path
+    <path
        id="mouth"
-       rein:test2="is_big"
+       rein:scale="0.5"
+       rein:hmax="0.5"
        style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        d="m 84.700229,112.9788 c 0.452094,0.0726 0.74108,0.1976 0.74108,0.1976 0,0 -0.232063,0.0965 -0.751137,0.0578 -0.318832,-0.0315 -0.710822,-0.1712 -0.651846,-0.21527 0.306077,-0.0528 0.352709,-0.0593 0.661903,-0.0401 z" />
-      <g
+    <g
        id="g197">
-         <g
+      <g
          id="g195">
-            <path
+        <path
            id="left-eye"
            d="m 82.839512,110.0332 c 0,0 -0.253523,-0.65883 -0.219247,-0.99757 0.03246,-0.32073 0.02704,-0.48562 0.207912,-0.62812 0.237437,-0.0791 -0.0164,-0.0675 0.867893,0.0945 0.182144,-0.0496 0.895673,0.3526 0.864703,0.54765 -0.0059,0.037 -0.05827,0.36559 -0.118657,0.54065 -0.0527,0.15279 -0.120844,0.4527 -0.210738,0.43934 -0.250592,-0.0372 -0.612432,0.003 -0.737249,-0.01 -0.378201,-0.0383 -0.654614,0.0133 -0.654614,0.0133 z"
            style="opacity:1;fill:#ffffff;fill-opacity:0.5;fill-rule:evenodd;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-         </g>
-         <path
+      </g>
+      <path
          id="left-iris"
          d="m 84.045364,109.44954 c -0.04759,-0.20651 -0.10466,-0.55985 -0.305813,-0.56519 -0.259696,-0.007 -0.460846,0.13882 -0.477593,0.57787 -0.02421,0.6347 0.454696,0.56475 0.454696,0.56475 0.40198,-0.0305 0.283593,-0.22326 0.32871,-0.57743 z"
          style="display:inline;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.137985;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;enable-background:new" />
-      </g>
-      <path
+    </g>
+    <path
        rein:scale="1"
        id="left-eyebrow"
        d="m 82.193494,107.83268 c 0.721156,0.11308 0.680535,0 1.323157,0.18395 0.238037,0.0545 0.561307,0.10409 1.099821,0.72174"
        style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-      <g
+    <g
        id="g209">
-         <g
+      <g
          id="g207">
-            <path
+        <path
            id="right-eye"
            d="m 85.381076,110.03029 c 0,0 -0.162782,-0.50385 -0.158905,-0.60461 0.0039,-0.10077 -0.17198,-0.48213 0.242153,-0.74727 0.382037,-0.24459 1.12435,-0.26877 1.481784,-0.23122 0.344945,-0.0348 0.02015,1.44749 -0.103866,1.5754 -0.245463,-0.0404 -1.060322,0.14992 -1.461164,0.008 z"
            style="opacity:1;fill:#ffffff;fill-opacity:0.5;fill-rule:evenodd;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-         </g>
-         <path
+      </g>
+      <path
          id="right-iris"
          d="m 85.687697,109.51614 c 0.0591,-0.19482 0.136919,-0.52959 0.329725,-0.52306 0.248948,0.008 0.431797,0.15946 0.418971,0.58049 -0.01854,0.60865 -0.47214,0.51404 -0.47214,0.51404 -0.382597,-0.0524 -0.256662,-0.23001 -0.276556,-0.57147 z"
          style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-      </g>
-      <path
+    </g>
+    <path
        id="right-eyebrow"
        d="m 84.996992,108.66988 c 0,0 0.05219,-0.16995 0.469023,-0.3535 0.47294,-0.20826 0.314181,-0.13182 0.777013,-0.19289 0.514401,-0.0679 0.730671,10e-4 0.725392,0.01 0.129853,-0.0167 0.327062,0.0297 0.467216,0.0742"
        style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
-   </g>
+  </g>
 </svg>

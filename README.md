@@ -11,7 +11,10 @@ This is a reincarnation of a dead project I started in 2022.\
 The plan is to update and improve on it, create a friendly GUI, and make it
 available for everyone.
 
-![An image showing a human with their eyes and mouth wide open and a cartoony-looking avatar mimicking their facial expression](tests/snapshots/basic_model/test_eyes_mouth.jpeg)
+<p align="middle">
+    <img src="tests/snapshots/normal_model/test_eyes_mouth.jpeg" alt="An image showing a human with their eyes and mouth wide open and a cartoony-looking character mimicking their facial expression" width="480">
+    <img src="tests/snapshots/normal_model/test_head_tilted_2.jpeg" alt="An image showing a human with his eyes close and head tilted to the side and a cartoony-looking character mimicking their facial expression" width="480">
+</p>
 
 #### How to use
 
