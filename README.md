@@ -1,15 +1,17 @@
-# Rein
+# [Rein]carnation
 
-A experimental vtuber renderer using super-easy-to-make svg models.
+A experimental vtuber renderer/app using super-easy-to-make[^1] svg models.
+
+[^1]: Rein's models are zero-config zero-rigging, toggles and keyframes can be
+optionally added to improve models.
 
 ### Roadmap
 
-This is a (rein)carnation of a dead project I made in 2022, the plan is to
-update it to use the ARkit standard 52 blendshapes instead of the current face
-landmarks method, and support all those blendshapes with toggles in the model
-parser.
+This is a reincarnation of a dead project I started in 2022.\
+The plan is to update and improve on it, create a friendly GUI, and make it
+available for everyone.
 
-![demo image showing a man with his eyes and mouth wide open and a vtuber avatar mimicking that facial structure](tests/snapshots/basic_model/test_eyes_mouth.jpeg)
+![An image showing a human with their eyes and mouth wide open and a cartoony-looking avatar mimicking their facial expression](tests/snapshots/basic_model/test_eyes_mouth.jpeg)
 
 #### How to use
 

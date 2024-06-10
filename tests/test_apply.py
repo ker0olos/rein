@@ -8,6 +8,7 @@ import resvg_python
 
 from src.svg.model import Model
 from src.tracking.tracking import Tracking
+from src.tracking.utils import optimize_image
 from tests.utils import compare_img, overlay_webcam
 
 with open("tests/models/face.svg") as file:
@@ -34,7 +35,7 @@ def test_basic_model(file):
     image_bytes = resvg_python.svg_to_png(model.tostring())
     image_decoded = cv2.imdecode(np.array(bytearray(image_bytes)), cv2.IMREAD_COLOR)
 
-    final_image = overlay_webcam(frame, image_decoded)
+    final_image = overlay_webcam(optimize_image(frame), image_decoded)
 
     assert compare_img(os.path.basename(file), "basic_model", final_image) < 4.5
 
@@ -56,6 +57,6 @@ def test_normal_model(file):
     image_bytes = resvg_python.svg_to_png(model.tostring())
     image_decoded = cv2.imdecode(np.array(bytearray(image_bytes)), cv2.IMREAD_COLOR)
 
-    final_image = overlay_webcam(frame, image_decoded)
+    final_image = overlay_webcam(optimize_image(frame), image_decoded)
 
     assert compare_img(os.path.basename(file), "normal_model", final_image) < 4.5

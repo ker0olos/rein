@@ -14,7 +14,8 @@ if __name__ == "__main__":
     tracking.set_model(model)
 
     frame = cv2.imread("tests/images/test_normal.jpeg")
-    frame = cv2.imread("tests/images/test_irises.jpeg")
+    # frame = cv2.imread("tests/images/test_closed_eyes.jpeg")
+    # frame = cv2.imread("tests/images/test_irises.jpeg")
     # frame = cv2.imread("tests/images/test_eyes_mouth.jpeg")
     # frame = cv2.imread("tests/images/test_head_tilted_2.jpeg")
     # frame = cv2.imread("tests/images/test_lowlight.jpeg")
