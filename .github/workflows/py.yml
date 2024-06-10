@@ -22,5 +22,8 @@ jobs:
         run: |
           pip install -e .
           pip install -r requirements.txt
-      - run: sh download_ml_models.sh
+      - if: ${{ runner.os == 'Windows' }}
+        run: powershell.exe -File download_ml_models.ps1
+      - if: ${{ runner.os != 'Windows' }}
+        run: sh download_ml_models.sh
       - run: python -m pytest --isort --black
